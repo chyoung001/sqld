@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Pretendard Variable', Pretendard, system-ui, sans-serif;
+    font-feature-settings: 'ss06' on, 'ss07' on; /* Pretendard 한글 미세조정 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-bg text-ink;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* SQL 코드 블록 */
+  pre, code {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+
+  /* 숫자 디스플레이 시 자릿수 정렬 */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Material Symbols 기본 설정 */
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-size: inherit;
+    line-height: 1;
+  }
+}
+
+@layer components {
+  /* 모든 버튼의 디폴트 — 작은 차이는 className에서 오버라이드 */
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5
+           px-3 py-1.5 rounded-md text-sm
+           border border-line hover:border-line-strong
+           transition-colors duration-150
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-white border-accent
+           hover:bg-accent-ink hover:border-accent-ink;
+  }
+
+  .btn-danger {
+    @apply text-danger bg-danger-soft border-transparent
+           hover:bg-danger hover:text-white;
+  }
+}
