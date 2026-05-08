@@ -4,6 +4,7 @@ import path from 'node:path';
 
 export default defineConfig({
   plugins: [react()],
+  base: '/sqld/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
